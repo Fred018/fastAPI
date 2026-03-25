@@ -12,12 +12,19 @@ from ..routers.auth import get_current_user, bcrypt_context, authenticate_user, 
 from ..database import Base
 from ..main import app
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:admin@localhost/todoapp_test"
+import os
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+
+_db_path = os.path.join(os.path.dirname(__file__), "todoapp.db")
+SQLALCHEMY_DB_URL = f"sqlite:///{_db_path}"
+
+
+engine = create_engine(SQLALCHEMY_DB_URL, connect_args={"check_same_thread": False})
 
 HASHED_PASSWORD = bcrypt_context.hash("hashed")
-
-
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 SessionLocalTest = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
