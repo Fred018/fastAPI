@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+
+        {
+            "name": "FastAPI: books.py",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "books:app",
+                "--reload",
+                "--port", "8000"
+            ],
+            "jinja": true,
+            "justMyCode": true
+        },
+        {
+            "name": "FastAPI: books2.py",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "books2:app",
+                "--reload",
+                "--port", "8001"
+            ],
+            "jinja": true,
+            "justMyCode": true
+        },
+         {
+            "name": "todo App",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": ["TodoApp.main:app", "--reload", "--port", "8001"],
+            "jinja": true,
+            "justMyCode": true
+        }
+    ]
+}
