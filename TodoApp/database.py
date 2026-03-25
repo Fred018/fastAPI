@@ -6,7 +6,7 @@ from sqlalchemy.orm import declarative_base
 
 
 _db_path = os.path.join(os.path.dirname(__file__), "todoapp.db")
-SQLALCHEMY_DB_URL = f"sqlite:///{_db_path}"
+SQLALCHEMY_DB_URL = "postgresql://postgres:wlcTtEoYqfomIQvJezDEAMeEmbrnAlQb@centerbeam.proxy.rlwy.net:10085/railway"
 
 
 engine = create_engine(SQLALCHEMY_DB_URL, connect_args={"check_same_thread": False})
